@@ -1,0 +1,147 @@
+#include<oistream>
+#include<string>
+using namespace std;
+
+
+class punto
+{
+	protected:
+	float px1, float px2, float py1, float py2, float p1, float p2;
+	float rectaco1, float rectaco2;
+	
+	public:
+	void puntos (int x1, int x2, int y1, int y2)
+	{
+		px1=x1;
+		px2=x2;
+		py1=y1;
+		py2=y2;
+	}
+	
+	void pedir_p()
+	{
+		cout<<"Ingrese la primera coordenada en x del primer punto";
+		cin>>x1
+		cout<<"Ingrese la segunda coordenada en y del primer punto";
+		cin>>x2
+		cout<<"Ingrese la primera coordenada en x del segundo punto";
+		cin>>y1
+		cout<<"Ingrese la segunda coordenada en x del segundo punto";
+		cin>>y2
+		cout<<"las coordenadas son:"<<"("<<x1<<", "<<y1<<", "<<x2<<", "<<y2<<")"<<endl;
+	}
+	
+};
+
+
+class pendiente : public puntos
+
+{
+	public:
+	void pendiente1();
+	void pendiente2();
+	void recta1();
+	void recta2();
+	void comparacion();
+};
+void pendiente::pendiente1()
+{
+	p1=((y2-y1)/(x1-x2));
+	cout<<"pendiente 1:"<<p1<<endl;
+	
+}
+
+void pendiente::pendiente2()
+{
+	p2=((y2-y1)/(x1-x2));
+	cout<<"pendiente 2:"<<p2<<endl;
+
+}
+
+void pendiente::recta1()
+{
+	rectaco1=-p1*px1+px2;
+	
+}
+
+void pendiente::resta2()
+{
+	restaco2=-p2*px1+px2;
+	
+}
+
+void pendiente::Comparacion()
+{
+	if(p1=p2)
+	{
+		cout<<"Las rectas son paralelas"<<endl;
+	}
+	else if((p1*p2)==-1)
+	{
+		cout<<"Las rectas son ortogonales"<<endl;
+	}
+	else if (p1!=p2)
+	{
+		float corte1;
+		float corte2;
+		corte1=((rectaco1-rectaco2)/(p1-p2));
+		corte2=((p1*rectaco1)+rectaco2);
+		cout<<"Los puntos de interseccion son:"<<"("<<corte1<<","<<corte2<<")"<<end1; 
+	}
+	
+}
+int main()
+{
+	//Coordenada1
+	float c1x0; 
+	float c1y0;
+	float c1x1;
+	float c1y1;
+	
+	//Coordenada2
+	float c2x0; 
+	float c2y0;
+	float c2x1;
+	float c2y1;
+	
+	puntos coodenadas;
+	pendiente m;
+	
+	cout<<"Por favor ingrese los puntos para la primera recta"<<endl;
+	cout<<"Escriba el primer punto"<<endl;
+	cout<<"coordenada en x"<<endl;
+	cin>>c1x0;
+	cout<<"Coordenada en y"<<endl;
+	cin>>c1y0
+	
+	cout<<"Escriba el segundo punto"<<endl;
+	cout<<"coordenada en x"<<endl;
+	cin>>c1x1;
+	cout<<"Coordenada en y"<<endl;
+	cin>>c1y1;
+	
+	
+	cout<<"Por favor ingrese los puntos para la segunda recta"<<endl;
+	cout<<"Escriba el primer punto"<<endl;
+	cout<<"coordenada en x"<<endl;
+	cin>>c2x0;
+	cout<<"Coordenada en y"<<endl;
+	cin>>c2y0
+	
+	cout<<"Escriba el segundo punto"<<endl;
+	cout<<"coordenada en x"<<endl;
+	cin>>c2x1;
+	cout<<"Coordenada en y"<<endl;
+	cin>>c2y1;
+	
+	m.pedir_p(c1x0,c1y0,c1x1,c1y1);
+	m.pendiente1();
+	m.recta1();
+	m.pedir_p(c2x0,c2y0,c2x1,c2y1);
+	m.pendiente2();
+	m.recta2();
+	m.comparacion();
+
+	
+}
+	
